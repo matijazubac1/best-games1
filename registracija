@@ -1,0 +1,16 @@
+<h2>Register</h2>
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<button onclick="register()">Register</button>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+const auth = firebase.auth();
+
+function register(){
+ auth.createUserWithEmailAndPassword(email.value,password.value)
+ .then(()=>location.href="index.html")
+ .catch(e=>alert(e.message));
+}
+</script>
