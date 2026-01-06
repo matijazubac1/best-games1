@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Best Games</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>🎮 Best Games</h1>
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="profile.html">Profile</a>
+    <a href="leaderboard.html">Top</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</header>
+
+<div id="categories">
+  <button onclick="filterGames('all')">All</button>
+  <button onclick="filterGames('action')">Action</button>
+  <button onclick="filterGames('puzzle')">Puzzle</button>
+  <button onclick="filterGames('racing')">Racing</button>
+  <button onclick="filterGames('kids')">Kids</button>
+</div>
+
+<input id="search" placeholder="Search games..." onkeyup="searchGames()">
+
+<main id="games"></main>
+
+<footer>© Best Games 2026</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="js/games.js"></script>
+</body>
+</html>
