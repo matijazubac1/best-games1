@@ -1,0 +1,8 @@
+const ADMIN_EMAIL = "tvojemail@gmail.com";
+
+firebase.auth().onAuthStateChanged(user=>{
+ if(!user || user.email !== ADMIN_EMAIL){
+  alert("Admin only!");
+  location.href="index.html";
+ }
+});
