@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:white;text-align:center">
+<h2>Jump Game</h2>
+<p>Click to jump</p>
+<div id="player" style="width:40px;height:40px;background:red;margin:auto"></div>
+
+<script>
+document.addEventListener("click",()=>{
+ alert("Jump!");
+});
+</script>
+</body>
+</html>
