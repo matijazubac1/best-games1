@@ -1,0 +1,21 @@
+<h2>Profile</h2>
+<p>Email: <span id="email"></span></p>
+<p>Total Score: <span id="score"></span></p>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+const db = firebase.firestore();
+
+firebase.auth().onAuthStateChanged(user=>{
+ if(!user) location.href="login.html";
+ document.getElementById("email").innerText = user.email;
+
+ db.collection("users").doc(user.uid).get().then(doc=>{
+  if(doc.exists){
+   document.getElementById("score").innerText = doc.data().score || 0;
+  }
+ });
+});
+</script>
