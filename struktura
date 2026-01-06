@@ -1,0 +1,15 @@
+best-games/
+├── index.html          → Početna stranica, lista igrica + search + kategorije
+├── login.html          → Login stranica
+├── register.html       → Register stranica
+├── profile.html        → Profil korisnika + score
+├── leaderboard.html    → Top igrači
+├── admin.html          → Admin panel
+├── css/
+│   └── style.css       → Stil sajta (dizajn)
+├── js/
+│   ├── games.js        → JS za liste igrica, search, filter, lock
+│   └── admin-check.js  → Admin zaštita
+└── games/
+    └── game1/
+        └── game.html   → Prva prava HTML5 igra (ostale kopiraš za više)
