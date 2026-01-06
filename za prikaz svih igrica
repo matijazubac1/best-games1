@@ -1,0 +1,55 @@
+const firebaseConfig = {
+  apiKey: "TVOJ_API_KEY",
+  authDomain: "TVOJ.firebaseapp.com",
+  projectId: "TVOJ"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const gamesDiv = document.getElementById("games");
+let logged = false;
+
+const categories = ["action","puzzle","racing","kids"];
+let games = [];
+
+for(let i=1;i<=100;i++){
+ games.push({
+  id:i,
+  name:"Game "+i,
+  category:categories[i%4]
+ });
+}
+
+firebase.auth().onAuthStateChanged(u=>{
+ logged = !!u;
+ showGames(games);
+});
+
+function showGames(list){
+ gamesDiv.innerHTML="";
+ list.forEach(g=>{
+  const lock = g.id > 20 && !logged;
+  gamesDiv.innerHTML += `
+   <div class="game ${lock?'locked':''}"
+    onclick="${lock?'alertLogin()':'openGame('+g.id+')'}">
+    <img src="assets/images/game${g.id}.png">
+    <h3>${g.name}</h3>
+   </div>`;
+ });
+}
+
+function filterGames(c){
+ showGames(c==="all"?games:games.filter(g=>g.category===c));
+}
+
+function searchGames(){
+ showGames(games.filter(g=>g.name.toLowerCase().includes(search.value.toLowerCase())));
+}
+
+function openGame(id){
+ location.href="games/game"+id+"/game.html";
+}
+
+function alertLogin(){
+ alert("You must login to play this game!");
+}
